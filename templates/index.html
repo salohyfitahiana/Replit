@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Quiz Olympiade</title>
+</head>
+<body>
+<header class="header">
+  <button class="icon-btn" onclick="goBack()">‹</button>
+  <button class="icon-btn"><span class="burger"><span></span><span></span><span></span></span></button>
+</header>
+<main class="content">
+  <h1>Bienvenue</h1>
+  <p>Entrez votre nom pour commencer :</p>
+  <input type="text" id="username" placeholder="Votre nom" />
+  <button onclick="startGame()">Commencer le quiz</button>
+
+  <div id="quiz-container" style="display:none;">
+    <span class="level-badge" id="level-badge">Niveau 1</span><br />
+    <span class="quiz-label">Quiz</span>
+    <p class="question-line"><span id="question-number">1-</span><span id="question-text"></span></p>
+    <div class="options" id="options-container"></div>
+    <button class="validate" id="validate-button" onclick="validateAnswer()" disabled>Valider</button>
+    <section id="completion-message" class="completion">
+      <p id="final-message"></p>
+      <p id="final-score" class="final-score"></p>
+      <button class="restart" onclick="restartQuiz()">Recommencer</button>
+    </section>
+  </div>
+</main>
+
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
