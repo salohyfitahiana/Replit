@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request, jsonify
 import mysql.connector
+import os
 
 app = Flask(__name__)
 
 def connect_db():
     return mysql.connector.connect(
-        host="127.0.0.1",
-        user="root",
-        password="admin",   # adapte si besoin
-        database="olympiade",
-        port=3306
+        host=os.environ.get("127.0.0.1"),
+        user=os.environ.get("root"),
+        password=os.environ.get("admin"),   # adapte si besoin
+        database=os.environ.get("olympiade"),
+        port=int (os.environ.get(3306))
     )
 
 @app.route("/")
